@@ -3,14 +3,14 @@ import './Search.css';
 import SearchIcon from "@material-ui/icons/Search";
 import MicIcon from "@material-ui/icons/Mic";
 import { Button } from "@material-ui/core"
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useStateValue } from "../StateProvider";
 import { actionTypes } from "../reducer";
 
 function Search({ hideButtons = false }) {
     const [{ }, dispatch] = useStateValue();
     const [query, setQuery] = useState("");
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const search = (e) => {
         e.preventDefault();
@@ -23,7 +23,7 @@ function Search({ hideButtons = false }) {
 
         // DO SOMETHING WITH THE INPUT ...... TODO
 
-        history.push('/search');
+        navigate('/search');
     }
 
     return (

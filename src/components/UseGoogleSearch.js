@@ -12,7 +12,7 @@ const UseGoogleSearch = (term) => {
                 `https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${contextKey}&q=${term}`
             )
                 .then(response => response.json())
-                .then(result => setData({ result }))
+                .then(result => setData(result))
         }
         fetchData();
     }, [term])

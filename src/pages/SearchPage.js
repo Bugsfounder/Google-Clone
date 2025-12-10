@@ -28,7 +28,7 @@ const SearchPage = () => {
         <div className='searchPage'>
             <div className="searchPageHeader">
                 <Link to="/">
-                    <img className="searchpageLogo" src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c51f.png" />
+                    <img className="searchpageLogo" src="https://t3.ftcdn.net/jpg/03/99/98/60/360_F_399986042_9iSLYUNyDv8npaKP31xsIpDVFjfqGLDF.jpg" />
                 </Link>
 
                 <div className="searchPageHeaderBody">
@@ -82,14 +82,14 @@ const SearchPage = () => {
             </div>
 
 
-            {term && (
+            {term && data && (
                 <div className="searchPageResults">
                     <p className="searchPageResultCount">
-                        About {data.searchInformation.formattedTotalResults} results ({data.searchInformation.formattedSearchTime} seconds) for {term}
+                        About {data.searchInformation?.formattedTotalResults} results ({data.searchInformation?.formattedSearchTime} seconds) for {term}
                     </p>
-                    {data?.items.map(item => {
+                    {data?.items?.map(item => {
                         return (
-                            <div className="searchpageResult">
+                            <div className="searchpageResult" key={item.link}>
                                 <a className="searchPageResultLink" href={item.link}>
                                     {item.pagemap?.cse_image?.length > 0 && item.pagemap?.cse_image[0]?.src && (
                                         <img className="searchPageImage" src={item.pagemap?.cse_image?.length > 0 &&

@@ -1,6 +1,6 @@
 import "./App.css";
 import Home from "./pages/Home";
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SearchPage from "./pages/SearchPage";
 
 function App() {
@@ -8,15 +8,10 @@ function App() {
         // BEM
         <div className="container">
             <Router>
-                <Switch>
-                    <Route exact path='/'>
-                        <Home />
-                    </Route>
-
-                    <Route exact path='/search'>
-                        <SearchPage />
-                    </Route>
-                </Switch>
+                <Routes>
+                    <Route path='/' element={<Home />} />
+                    <Route path='/search' element={<SearchPage />} />
+                </Routes>
             </Router>
         </div>
     );
